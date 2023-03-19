@@ -18,13 +18,13 @@ class Product:
 
         print("Product code:", self.code)
         print("Product name:", self.name)
-        print("Sale price:", self.price)
-        print("Manufacture cost:", self.cost)
+        print("Sale price:", self.price, "CAD")
+        print("Manufacture cost:", self.cost, "CAD")
         print("Monthly production:", self.manufacture_units, "(Approx.)")
 
-        net_profit = 0
+        total_sold = 0
 
-        for i in range(1, 12):
+        for i in range(1, 13):
             self.stock += self.manufacture_units
             sold = random.randrange(self.manufacture_units-10, self.manufacture_units+11)
             self.stock -= sold
@@ -32,6 +32,6 @@ class Product:
             print("     Manufactured:", self.manufacture_units)
             print("     Sold:", sold)
             print("     Stock:", self.stock)
-            net_profit += ((sold * self.price)-(self.manufacture_units * self.cost))
-            
-        print("Net profit: {:.2f}".format(net_profit))    
+            total_sold += sold
+        net_profit = ((total_sold*self.price)-(self.manufacture_units*12*self.cost))    
+        print("Net profit: {:.2f} CAD".format(net_profit))    
