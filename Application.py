@@ -4,7 +4,9 @@ from Product import Product
 from Validate import *
 
 class Application:
+    
     def run(self):
+        """Runs the program."""
         p = Product(pcode_valid(), pname_valid(), price_valid(), cost_valid(), stock_valid(), units_valid())
         p.display()
 
